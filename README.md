@@ -1,11 +1,11 @@
-rf# 🧩 Prueba Técnica - Esteban Sanabria
+rf#  Prueba Técnica - Esteban Sanabria
 
 Este proyecto corresponde a una **prueba técnica de desarrollo backend** utilizando **Java con Spring Boot** y **Docker Compose**.  
 El objetivo principal es implementar un conjunto de microservicios funcionales para la gestión de inventario y productos, siguiendo buenas prácticas de arquitectura, documentación y despliegue.
 
 ---
 
-## 🚀 Tecnologías Utilizadas
+##  Tecnologías Utilizadas
 
 - **Java 17**
 - **Spring Boot 3.x**
@@ -18,7 +18,7 @@ El objetivo principal es implementar un conjunto de microservicios funcionales p
 
 ---
 
-## 🏗️ Estructura del Proyecto
+##  Estructura del Proyecto
 
 ```bash
 Prueba_Tecnica_EstebanSanabria/
