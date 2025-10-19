@@ -1,0 +1,53 @@
+version: '3.8'
+services:
+  postgres:
+    image: postgres:14
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+
+  producto-service:
+    build: ./producto-service
+    environment:
+      DB_HOST: postgres
+      DB_PORT: 5432
+      DB_NAME: products
+      DB_USER: PruebaTecnica
+      DB_PASS: PRTEC10
+      SECURITY_API_KEY: API_KEY_producto_123
+    depends_on:
+      - postgres
+    ports:
+      - "8081:8081"
+    networks:
+      - appnet
+
+  inventario-service:
+    build: ./inventario-service
+    environment:
+      DB_HOST: postgres
+      DB_PORT: 5432
+      DB_NAME: inventario
+      DB_USER: PruebaTecnica
+      DB_PASS: PRTEC10
+      producto_URL: http://producto-service:8081
+      SECURITY_API_KEY: API_KEY_inventario_456
+    depends_on:
+      - postgres
+      - producto-service
+    ports:
+      - "8082:8082"
+    networks:
+      - appnet
+
+volumes:
+  pgdata:
+
+networks:
+  appnet:
+    driver: bridge
+
